@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        Parse.initializeWithConfiguration(
+            ParseClientConfiguration(block: { (configuration:ParseMutableClientConfiguration) -> Void in
+                configuration.applicationId = "Instagram"
+                configuration.clientKey = "adgy723o8gh772q4egh789"  // set to nil assuming you have not set clientKey
+                configuration.server = "https://whispering-forest-30292.herokuapp.com/parse"
+            })
+        )
+    
+        
+        if PFUser.currentUser() != nil {
+           //automatically move to main view controller
+           
+        }
         return true
     }
 
