@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -55,6 +56,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     
     @IBAction func onShare(sender: AnyObject) {
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         Post.postUserImage(postingImage.image, withCaption: captionTextField.text) { (success: Bool, error: NSError?) -> Void in
             if success {
                 print("posting image")

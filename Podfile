@@ -6,6 +6,7 @@ use_frameworks!
 target 'instagram' do
     pod 'Parse'
     pod 'ParseUI'
+    pod 'MBProgressHUD'
 end
 
 target 'instagramTests' do

@@ -29,9 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if PFUser.currentUser() != nil {
            //automatically move to main view controller
-           //let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            //let vc = storyboard.in
-            //window?.rootViewController = vc
+           let storyboard = UIStoryboard(name: "Main", bundle: nil)
+           //let vc = storyboard.instantiateViewControllerWithIdentifier("TabBarController")
+           // window?.rootViewController = vc
         }
         return true
     }

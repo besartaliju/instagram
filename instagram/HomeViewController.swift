@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import ParseUI
+import MBProgressHUD
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -16,6 +17,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     
     var posts: [PFObject]?
+    var time: NSDate?
     
 
     override func viewDidLoad() {
@@ -36,6 +38,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             if let posts = posts {
                 self.posts = posts
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
                 self.tableView.reloadData()
             } else {
                 print(error?.localizedDescription)
@@ -56,14 +59,29 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
        let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell", forIndexPath: indexPath) as! PhotoCell
-        
-        //let photo = posts![indexPath.row]
-        
+        let photo = posts![indexPath.row]
         cell.instagramPost = posts![indexPath.row]
+        time = photo.createdAt!
+        let timeSince = timePassed(time!)
+        if timeSince >= 86400 {
+            cell.timeLabel.text = "\(Int(timeSince)/86400)d"
+        } else if timeSince >= 3600 {
+            cell.timeLabel.text = "\(Int(timeSince)/3600)h"
+        } else if timeSince >= 60 {
+            cell.timeLabel.text = "\(Int(timeSince)/60)m"
+        } else {
+            cell.timeLabel.text = "\(Int(timeSince))s"
+        }
         
         return cell
         
         
+    }
+    
+    func timePassed(time: NSDate) -> NSTimeInterval {
+        let now = NSDate()
+        let timePassed = now.timeIntervalSinceDate(time)
+        return timePassed
     }
 
     override func didReceiveMemoryWarning() {
