@@ -106,12 +106,11 @@
                     <connections>
                         <outlet property="captionTextField" destination="LGK-0H-AXc" id="3OK-s7-j7A"/>
                         <outlet property="postingImage" destination="Rv4-3c-psL" id="vhy-Ab-A32"/>
-                        <segue destination="UzS-mB-JEG" kind="presentation" identifier="backHome" id="OpC-Kk-6f7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qSD-MG-eB4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2127" y="600"/>
+            <point key="canvasLocation" x="2265" y="600"/>
         </scene>
         <!--Instagram-->
         <scene sceneID="4i7-fl-QLo">
@@ -177,7 +176,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="280" id="hS0-Xa-HWp" customClass="PhotoCell" customModule="instagram" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="280"/>
+                                        <rect key="frame" x="0.0" y="92" width="320" height="280"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hS0-Xa-HWp" id="0b7-kt-2BK">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="279"/>
@@ -317,7 +316,4 @@
         <image name="iconmonstr-photo-camera-9-24" width="24" height="24"/>
         <image name="iconmonstr-user-1-16" width="16" height="16"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="zvn-tE-yxo"/>
-    </inferredMetricsTieBreakers>
 </document>

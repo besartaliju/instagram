@@ -17,17 +17,16 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     var chosenImage: UIImage!
     
-    /*let vc = UIImagePickerController()
-    vc.delegate = self
-    vc.allowsEditing = true
-    vc.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-    self.presentViewController(vc, animated: true, completion: nil)
-    // Do any additional setup after loading the view.
-    */
+       
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let vc = UIImagePickerController()
+        vc.delegate = self
+        vc.allowsEditing = true
+        vc.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        self.presentViewController(vc, animated: true, completion: nil)
 
         //postingImage.image = chosenImage
     }
@@ -43,10 +42,15 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
             let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
             let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
             
-            // Do something with the images (based on your use case)
+            
+            chosenImage = editedImage
+            postingImage.image = chosenImage
+            
             
             // Dismiss UIImagePickerController to go back to your original view controller
             dismissViewControllerAnimated(true, completion: nil)
+            
+        
     }
     
     
