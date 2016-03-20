@@ -9,16 +9,27 @@
 import UIKit
 
 class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    
+    @IBOutlet weak var postingImage: UIImageView!
+    
+    @IBOutlet weak var captionTextField: UITextField!
+    
+    var chosenImage: UIImage!
+    
+    /*let vc = UIImagePickerController()
+    vc.delegate = self
+    vc.allowsEditing = true
+    vc.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+    self.presentViewController(vc, animated: true, completion: nil)
+    // Do any additional setup after loading the view.
+    */
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let vc = UIImagePickerController()
-        vc.delegate = self
-        vc.allowsEditing = true
-        vc.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        self.presentViewController(vc, animated: true, completion: nil)
-        // Do any additional setup after loading the view.
+
+        //postingImage.image = chosenImage
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,6 +49,18 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
             dismissViewControllerAnimated(true, completion: nil)
     }
     
+    
+    @IBAction func onShare(sender: AnyObject) {
+        Post.postUserImage(postingImage.image, withCaption: captionTextField.text) { (success: Bool, error: NSError?) -> Void in
+            if success {
+                print("posting image")
+                self.performSegueWithIdentifier("backHome", sender: nil)
+            } else {
+                print(error?.localizedDescription)
+            }
+        }
+        
+    }
 
     
     //Create for taking a photo and picking one from photo Libary

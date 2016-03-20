@@ -8,9 +8,9 @@
 
 import UIKit
 import Parse
+import ParseUI
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -57,7 +57,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
        let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell", forIndexPath: indexPath) as! PhotoCell
         
-        let photo = posts![indexPath.row]
+        //let photo = posts![indexPath.row]
+        
+        cell.instagramPost = posts![indexPath.row]
         
         return cell
         

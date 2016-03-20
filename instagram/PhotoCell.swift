@@ -11,7 +11,13 @@ import ParseUI
 import Parse
 
 class PhotoCell: UITableViewCell {
-
+    
+    @IBOutlet weak var postedImage: PFImageView!
+    @IBOutlet weak var captionLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
+    
+    @IBOutlet weak var timeLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,7 +25,10 @@ class PhotoCell: UITableViewCell {
     
     var instagramPost: PFObject!{
         didSet {
-            
+            self.postedImage.file = instagramPost["media"] as? PFFile
+            self.postedImage.loadInBackground()
+            self.captionLabel.text = instagramPost["caption"] as? String
+            self.usernameLabel.text = instagramPost["author"] as? String
         }
     }
 

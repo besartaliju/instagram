@@ -66,14 +66,52 @@
                     <view key="view" contentMode="scaleToFill" id="M6B-xj-nkw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rv4-3c-psL">
+                                <rect key="frame" x="20" y="85" width="280" height="200"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LGK-0H-AXc">
+                                <rect key="frame" x="20" y="310" width="280" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5cJ-xj-G6E">
+                                <rect key="frame" x="20" y="471" width="280" height="40"/>
+                                <color key="backgroundColor" red="0.12874021252796419" green="0.67450980392156867" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Share ">
+                                            <attributes>
+                                                <color key="NSColor" red="0.89735365278024648" green="0.92403874065562963" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="20" name=".AppleSystemUIFont"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="→">
+                                            <attributes>
+                                                <color key="NSColor" red="0.89735365278024648" green="0.92403874065562963" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="20" name=".LucidaGrandeUI"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="onShare:" destination="Zwf-S5-VH5" eventType="touchUpInside" id="3B5-aL-Q98"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Instagram" id="0t6-yG-XHG"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="captionTextField" destination="LGK-0H-AXc" id="3OK-s7-j7A"/>
+                        <outlet property="postingImage" destination="Rv4-3c-psL" id="vhy-Ab-A32"/>
+                        <segue destination="UzS-mB-JEG" kind="presentation" identifier="backHome" id="OpC-Kk-6f7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qSD-MG-eB4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2127" y="402"/>
+            <point key="canvasLocation" x="2127" y="600"/>
         </scene>
         <!--Instagram-->
         <scene sceneID="4i7-fl-QLo">
@@ -120,7 +158,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BxK-4P-pgG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1583" y="1942"/>
+            <point key="canvasLocation" x="1595" y="1942"/>
         </scene>
         <!--Instagram-->
         <scene sceneID="gsB-D6-oxG">
@@ -134,9 +172,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WzF-Jg-lw5">
-                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="280" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WzF-Jg-lw5">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="280" id="hS0-Xa-HWp" customClass="PhotoCell" customModule="instagram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="280"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hS0-Xa-HWp" id="0b7-kt-2BK">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="279"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A4J-ci-ej1" customClass="PFImageView">
+                                                    <rect key="frame" x="8" y="31" width="304" height="165"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUt-Mn-jlE">
+                                                    <rect key="frame" x="8" y="204" width="304" height="67"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RsY-bQ-nux">
+                                                    <rect key="frame" x="8" y="8" width="145" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftM-3S-tae">
+                                                    <rect key="frame" x="252" y="8" width="60" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.36336137820512826" green="0.36336137820512826" blue="0.36336137820512826" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="captionLabel" destination="eUt-Mn-jlE" id="pda-Cw-z8x"/>
+                                            <outlet property="postedImage" destination="A4J-ci-ej1" id="u9i-1q-H4k"/>
+                                            <outlet property="timeLabel" destination="ftM-3S-tae" id="sUc-sg-qG2"/>
+                                            <outlet property="usernameLabel" destination="RsY-bQ-nux" id="t0T-Dl-7Ey"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -177,7 +254,7 @@
         <scene sceneID="QBb-1u-tUw">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4Nu-Sn-Syq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="iconmonstr-home-6-24" id="LTs-L7-aUB"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Home" image="iconmonstr-home-6-24" id="LTs-L7-aUB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sRh-YY-qsF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -197,7 +274,7 @@
         <scene sceneID="Gm2-Yi-KEM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zzy-uF-2Pe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Capture" image="iconmonstr-photo-camera-9-24" id="LjX-J3-zhH"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="Capture" image="iconmonstr-photo-camera-9-24" id="LjX-J3-zhH"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="j1z-Cp-vYy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -217,7 +294,7 @@
         <scene sceneID="PVN-mg-hqv">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pa5-tj-8u1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="iconmonstr-user-1-16" selectedImage="iconmonstr-user-1-16" id="E3I-cP-jeR"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="Profile" image="iconmonstr-user-1-16" selectedImage="iconmonstr-user-1-16" id="E3I-cP-jeR"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lhT-n5-E3F">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -240,4 +317,7 @@
         <image name="iconmonstr-photo-camera-9-24" width="24" height="24"/>
         <image name="iconmonstr-user-1-16" width="16" height="16"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="zvn-tE-yxo"/>
+    </inferredMetricsTieBreakers>
 </document>
