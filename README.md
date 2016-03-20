@@ -46,7 +46,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 ## Notes
 
 Describe any challenges encountered while building the app.
-
+- Getting to pick a photo from the library and then going to another post page without having to create a new view controller.
 ## License
 
     Copyright [2016] [Besart Aliju]
